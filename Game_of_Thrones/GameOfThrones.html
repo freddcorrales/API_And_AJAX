@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Game Of Thrones</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="houses">
+                    <img src="stark.jpg" class="stark">
+                    <img src="targaryen.jpg" class="targaryen">
+                    <img src="lannister.jpg" class="lannister">
+                    <img src="baratheon.png" class="baratheon">
+            </div>
+
+            <div id="details">
+                <fieldset>
+                    <legend>House Details</legend>
+                    <div id="info">
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+
+        <script>
+        $(".stark").click(function(){
+                $.get("https://anapioficeandfire.com/api/houses/362", function(res){
+                    $("#info").html("<p>Name: " + res.name + "</p><p>Words: " + res.words + "</p><p>Titles:" + res.titles + "</p>" );
+                }, "json");
+            });
+        
+        $(".targaryen").click(function(){
+            $.get("https://anapioficeandfire.com/api/houses/378", function(res){
+                $("#info").html("<p>Name: " + res.name + "</p><p>Words: " + res.words + "</p><p>Titles:" + res.titles + "</p>" );
+            }, "json");
+        });
+        $(".lannister").click(function(){
+            $.get("https://anapioficeandfire.com/api/houses/231", function(res){
+                $("#info").html("<p>Name: " + res.name + "</p><p>Words: " + res.words + "</p><p>Titles:" + res.titles + "</p>" );
+            }, "json");
+        });
+        $(".baratheon").click(function(){
+            $.get("https://anapioficeandfire.com/api/houses/15", function(res){
+                $("#info").html("<p>Name: " + res.name + "</p><p>Words: " + res.words + "</p><p>Titles:" + res.titles + "</p>" );
+            }, "json");
+        });
+        
+        // $.get("https://anapioficeandfire.com/api/houses/231", function(res) {
+        //     // console.log(res.swornMembers);
+        //         $.get("https://anapioficeandfire.com/api/characters/936", function(res){
+        //         console.log(res.name)
+        //         }, "json");
+        //     }, "json"); 
+        
+        // $.get("https://anapioficeandfire.com/api/characters/936", function(res){
+        //     console.log(res.name)
+        // }, "json");
+        
+        
+        
+        
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Gotta Catch'em All</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+    </head>
+    <body>
+            <div id="pokemon_name">
+                <h1 id="name">Bulbasaur</h1>
+                <div id="info"></div>
+            </div>
+        <script>
+            //How to console log JSON Data when traversing through the data 
+            // $.get("https://pokeapi.co/api/v2/pokemon/1/", function(res) {
+            //         console.log(res.abilities[0].ability.name);
+            //     }, "json"); 
+
+            // $.get("https://pokeapi.co/api/v2/pokemon/1/", function(res) {
+            //     $('#info').html("<h2>" + res.abilities[0].ability.name + "</h2>");
+            //     }, "json"); 
+
+            $.get("https://pokeapi.co/api/v2/pokemon/1/", function(res) {
+                    var html_str = "";
+                    html_str += "<h4>Types</h4>";
+                    html_str += "<ul>"; 
+                    for(var i = 0; i < res.types.length; i++) {
+                        html_str += "<li>" + res.types[i].type.name + "</li>";
+                    }
+                    html_str += "</ul>";
+                    $("#name").html(html_str);
+                }, "json");
+            // We are passing in three arguments to the $.get function. 
+            // The URL that we want to load information from (i.e. "https://pokeapi.co/api/v2/pokemon/1/")
+            // Function we want to run after information was successfully loaded 
+            // We want to build a string that looks like "<h4>Types</h4><ul><li>poison</li><li>grass</li></ul>" and inserting its content inside the div with the id of bulbasaur. The browser will read the string and render it as HTML when we call $("#bulbasaur").html(html_str)
+            // The type of information we are expecting back which in our case is json.
+        </script>
+    </body>
+</html>

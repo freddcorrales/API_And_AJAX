@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>NASA IMG OF THE DAY</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+</head>
+<body>
+    <div class="picOfDay"></div>
+    <div id="copyright"></div> 
+    <script>
+        var todayDate = new Date();
+        var n = todayDate.toISOString();
+        console.log(n)
+
+         $.get('https://api.nasa.gov/planetary/apod?api_key=6yl9QanyR6CrWQ7gbcvp9265KEwAuPeHygaUA39l', function(res){
+             $('.picOfDay').html("<img src='"+ res.hdurl +"' />");
+             $('#copyright').html("<h2>" + res.copyright + "</h2>")
+         }) 
+        
+    </script>
+</body>
+</html>
